@@ -16,14 +16,14 @@ fi
 
 # Install SSH client so we can deploy
 yum install -y openssh-client rsync
-
+echo "before ssh"
 # Setup the SSH key
 #mkdir ~/.ssh
 #chmod 700 ~/.ssh
 echo $SSH_KEY | base64 -d > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/*
 pwd
-
+echo "before resync"
 # Upload Files
 #rsync --delete-after -arvce  "ssh -o StrictHostKeyChecking=no -p ${SFTP_PORT}"  . ${SSH_USERNAME}@${SSH_SERVER}:~/public_html/
 rsync -a ./girish-git.txt ${SSH_USERNAME}@${SSH_SERVER}:/home/ec2-user/
