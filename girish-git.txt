@@ -1,1 +1,2 @@
 Testing of copying files from Git to Kinsta
+Testing the copying or updating of the existing files
