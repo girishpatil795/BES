@@ -22,11 +22,12 @@ echo "before ssh"
 chmod 700 ~/.ssh
 echo "After 700 PERMISSION"
 echo $SSH_USERNAME
-echo $SSH_KEY
 echo "COPYING SSH KEYS"
 #echo $SSH_KEY | base64 --decode > ~/.ssh/id_rsa
 echo $SSH_KEY > ~/.ssh/id_rsa
 echo "COPIED SSH KEYS SUCCESSFULLY"
+echo "Content of id_rsa"
+cat ~/.ssh/id_rsa
 chmod 600 ~/.ssh/*
 pwd
 echo "before resync"
