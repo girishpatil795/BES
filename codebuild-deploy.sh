@@ -15,7 +15,7 @@ if  [ "$CODEBUILD_GIT_BRANCH" != 'master' ]; then
 fi
 
 # Install SSH client so we can deploy
-apt-get install -y openssh-client rsync
+yum install -y openssh-client rsync
 
 # Setup the SSH key
 mkdir ~/.ssh
