@@ -23,7 +23,9 @@ chmod 700 ~/.ssh
 echo "After 700 PERMISSION"
 echo $SSH_USERNAME
 echo $SSH_KEY
-echo $SSH_KEY | base64 -d > ~/.ssh/id_rsa
+echo "COPYING SSH KEYS"
+echo $SSH_KEY | base64 --decode > ~/.ssh/id_rsa
+echo "COPIED SSH KEYS SUCCESSFULLY"
 chmod 600 ~/.ssh/*
 pwd
 echo "before resync"
