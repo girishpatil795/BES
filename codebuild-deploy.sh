@@ -22,10 +22,11 @@ yum install -y openssh-client rsync
 #chmod 700 ~/.ssh
 echo $SSH_KEY | base64 -d > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/*
+pwd
 
 # Upload Files
 #rsync --delete-after -arvce  "ssh -o StrictHostKeyChecking=no -p ${SFTP_PORT}"  . ${SSH_USERNAME}@${SSH_SERVER}:~/public_html/
-rsync ./girish-git.txt ${SSH_USERNAME}@${SSH_SERVER}:/home/ec2-user/
+rsync -a ./girish-git.txt ${SSH_USERNAME}@${SSH_SERVER}:/home/ec2-user/
 
 # Run any necessary remote commands
-ssh -o "StrictHostKeyChecking=no"  ${SSH_USERNAME}@${SSH_SERVER} -p ${SSH_PORT} 'cd public_html ; composer install --optimize-autoloader; php artisan migrate'
+#ssh -o "StrictHostKeyChecking=no"  ${SSH_USERNAME}@${SSH_SERVER} -p ${SSH_PORT} 'cd public_html ; composer install --optimize-autoloader; php artisan migrate'
