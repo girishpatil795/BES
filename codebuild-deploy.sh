@@ -25,7 +25,7 @@ chmod 600 ~/.ssh/*
 
 # Upload Files
 #rsync --delete-after -arvce  "ssh -o StrictHostKeyChecking=no -p ${SFTP_PORT}"  . ${SSH_USERNAME}@${SSH_SERVER}:~/public_html/
-rsync ~/girish-git.txt ${SSH_USERNAME}@${SSH_SERVER}:~/public_html/
+rsync ./girish-git.txt ${SSH_USERNAME}@${SSH_SERVER}:/home/ec2-user/
 
 # Run any necessary remote commands
 ssh -o "StrictHostKeyChecking=no"  ${SSH_USERNAME}@${SSH_SERVER} -p ${SSH_PORT} 'cd public_html ; composer install --optimize-autoloader; php artisan migrate'
