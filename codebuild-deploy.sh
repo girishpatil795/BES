@@ -18,8 +18,8 @@ fi
 yum install -y openssh-client rsync
 
 # Setup the SSH key
-mkdir ~/.ssh
-chmod 700 ~/.ssh
+@mkdir ~/.ssh
+#chmod 700 ~/.ssh
 echo $SSH_KEY | base64 -d > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/*
 
