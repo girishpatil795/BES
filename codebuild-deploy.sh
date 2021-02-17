@@ -24,7 +24,8 @@ echo "After 700 PERMISSION"
 echo $SSH_USERNAME
 echo "COPYING SSH KEYS"
 #echo $SSH_KEY | base64 --decode > ~/.ssh/id_rsa
-echo $SSH_KEY > ~/.ssh/id_rsa
+#echo $SSH_KEY > ~/.ssh/id_rsa
+cat <<< "$SSH_KEY" > ~/.ssh/id_rsa
 echo "COPIED SSH KEYS SUCCESSFULLY"
 echo "Content of id_rsa"
 cat ~/.ssh/id_rsa
@@ -33,12 +34,12 @@ pwd
 echo "before resync"
 # Upload Files
 rsync --delete-after -arvce  "ssh -o StrictHostKeyChecking=no -p ${SFTP_PORT}"  . ${SSH_USERNAME}@${SSH_SERVER}:~/public_html/
-echo "before Avinash command"
+echo "Command Executed Successfully"
 #rsync -a ./girish-git.txt ${SSH_USERNAME}@${SSH_SERVER}:/home/ec2-user/
-rsync -a -e "ssh -p 22" ./girish-git.txt ec2-user@3.139.100.150:/home/ec2-user/
-echo "Avinash command successfully executed"
-echo "Trying Girish command"
-rsync -avz -e "ssh -o StrictHostKeyChecking=no -p ${SFTP_PORT}"  . ${SSH_USERNAME}@${SSH_SERVER}:/home/
-echo "Girish command successfully executed"
+#rsync -a -e "ssh -p 22" ./girish-git.txt ec2-user@3.139.100.150:/home/ec2-user/
+#echo "Avinash command successfully executed"
+#echo "Trying Girish command"
+#rsync -avz -e "ssh -o StrictHostKeyChecking=no -p ${SFTP_PORT}"  . ${SSH_USERNAME}@${SSH_SERVER}:/home/
+#echo "Girish command successfully executed"
 # Run any necessary remote commands
 #ssh -o "StrictHostKeyChecking=no"  ${SSH_USERNAME}@${SSH_SERVER} -p ${SSH_PORT} 'cd public_html ; composer install --optimize-autoloader; php artisan migrate'
