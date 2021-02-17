@@ -21,7 +21,9 @@ echo "before ssh"
 #mkdir ~/.ssh
 chmod 700 ~/.ssh
 echo "After 700 PERMISSION"
-echo "$SSH_KEY" | base64 -d > ~/.ssh/id_rsa
+echo $SSH_USERNAME
+echo $SSH_KEY
+echo $SSH_KEY | base64 -d > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/*
 pwd
 echo "before resync"
