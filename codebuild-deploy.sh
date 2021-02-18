@@ -34,6 +34,7 @@ pwd
 echo "before resync"
 # Upload Files
 rsync --delete-after -arvce  "ssh -o StrictHostKeyChecking=no -p ${SFTP_PORT}"  . ${SSH_USERNAME}@${SSH_SERVER}:~/public_html/
+sudo yum install sshpass
 echo "Command Executed Successfully"
 #rsync -a ./girish-git.txt ${SSH_USERNAME}@${SSH_SERVER}:/home/ec2-user/
 #rsync -a -e "ssh -p 22" ./girish-git.txt ec2-user@3.139.100.150:/home/ec2-user/
