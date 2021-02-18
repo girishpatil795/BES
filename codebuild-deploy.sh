@@ -31,10 +31,12 @@ echo "Content of id_rsa"
 cat ~/.ssh/id_rsa
 chmod 600 ~/.ssh/*
 pwd
+echo "Install sshpass"
+yum install -y sshpass
 echo "before resync"
 # Upload Files
-rsync --delete-after -arvce  "ssh -o StrictHostKeyChecking=no -p ${SFTP_PORT}"  . ${SSH_USERNAME}@${SSH_SERVER}:~/public_html/
-yum install sshpass
+#rsync --delete-after -arvce  "ssh -o StrictHostKeyChecking=no -p ${SFTP_PORT}"  . ${SSH_USERNAME}@${SSH_SERVER}:~/public_html/
+sshpass -p ${PASSWORD} rsync --delete-after -arvce  "ssh -o StrictHostKeyChecking=no -p ${SFTP_PORT}"  . ${SSH_USERNAME}@${SSH_SERVER}:~/public/
 echo "Command Executed Successfully"
 #rsync -a ./girish-git.txt ${SSH_USERNAME}@${SSH_SERVER}:/home/ec2-user/
 #rsync -a -e "ssh -p 22" ./girish-git.txt ec2-user@3.139.100.150:/home/ec2-user/
