@@ -1,6 +1,7 @@
 # K8s ICAP flow of requests between microservices/pods.
 
 Below diagram shows the flow of request between different pods.
+![image](https://user-images.githubusercontent.com/64909674/110074117-ad45ad80-7da6-11eb-9dc4-5385a380c28f.png)
 
 
 *	ICAP Service receives the request to process file(.pdf)
