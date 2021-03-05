@@ -14,9 +14,9 @@ Below diagram shows the flow of request between different pods.
 *	fluent-bit logging captures the transaction log messages, pod logs and send it to ELK.
 *	Policies from management UI are updated to ncfs-ncfs-policy-update-service which in turn updates to ncfs-reference-ncfs.
 
-# Observations:
+## Observations:
 *	policy-update-service is no more in use and it is replaced by ncfs-ncfs-policy-update-service.
 *	pvc-transaction-query-service is no more in use.
 
-# Issues:
+## Issues:
 *	Current K8s ICAP setup works only on single node cluster but not on multinode Kubernetes cluster.
